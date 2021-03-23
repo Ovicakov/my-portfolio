@@ -1,7 +1,11 @@
-import logo from './logo.svg'
-import './App.css'
-
 import styled from '@emotion/styled'
+
+const MainWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+`
 
 const Button = styled.button`
   padding: 32px;
@@ -17,23 +21,9 @@ const Button = styled.button`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Button>This my button component.</Button>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainWrapper>
+      <Button>Let's try something</Button>
+    </MainWrapper>
   )
 }
 
