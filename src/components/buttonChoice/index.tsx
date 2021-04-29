@@ -11,17 +11,30 @@ const Button = styled.button`
   margin-top: 4rem;
   font-size: 1rem;
   width: 15rem;
-  height: 2rem;
+  height: 2.5rem;
+  border: none;
+  position: relative;
 
-  &:hover {
-    background-color: #418fde;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 30px;
+    border: 2px solid #ebebeb;
+    transition: all 150ms ease-in-out;
   }
 
-  &:active {
-    background-color: white;
+  &:hover::before {
+    top: calc(2px * -2);
+    left: calc(2px * -2);
+    right: calc(2px * -2);
+    bottom: calc(2px * -2);
   }
 `
 
 export const ButtonChoice: FC<Props> = ({ children, onClick }) => {
-  return <Button onClick={(e) => onClick && onClick()}>{children}</Button>
+  return <Button onClick={() => onClick && onClick()}>{children}</Button>
 }

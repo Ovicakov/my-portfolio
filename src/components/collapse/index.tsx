@@ -1,34 +1,69 @@
 import styled from 'styled-components'
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
-const text = () => (
-  <TextWrapper>
-    Front-end developer at leboncoin, I am working in the acquisition feature
-    team. The purposes of this field is the performance optimization (CLS, LCP,
-    web vitals...) and the SEO of the leboncoin.fr website.
-    <br />
-    <br />
-    After studying communication and obtaining my Master degree, I was strangely
-    hired only by tech companies (software and web). And by dint of seeing lines
-    of code, I decided to give it a try. I loved it. And I changed job (but in
-    the same company).
-    <br />
-    <br />
-    Following my 5 months bootcamp and obtaining my 2 years bachelor web and
-    mobile web developer degree, I became a front-end developer. And my daily
-    work life nowadays is strewn with Javascript, React, Typescript, styled
-    components, styled system, SASS, storybook and more other tools.
-    <br />
-    <br />I love to learn new things and above all, to improve myself.
-  </TextWrapper>
-)
+interface Props {
+  isCurriculumOpen?: boolean
+  isChuckVisible?: boolean
+  chuckQuote?: string
+}
 
 const TextWrapper = styled.p`
-  width: 35rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
   text-align: justify;
+  width: 40rem;
+  height: ${({ isCurriculumOpen }: Pick<Props, 'isCurriculumOpen'>) =>
+    isCurriculumOpen ? '20rem' : 0};
+  opacity: ${({ isCurriculumOpen }: Pick<Props, 'isCurriculumOpen'>) =>
+    isCurriculumOpen ? 1 : 0};
+  transition: all 600ms ease-in-out;
+  overflow: hidden;
 `
 
-export const Collapse: FC = () => {
-  return text()
+const QuoteWrapper = styled.span`
+  width: 40rem;
+  margin-top: -1rem;
+  height: ${({ isChuckVisible }: Pick<Props, 'isChuckVisible'>) =>
+    isChuckVisible ? '5rem' : 0};
+  opacity: ${({ isChuckVisible }: Pick<Props, 'isChuckVisible'>) =>
+    isChuckVisible ? 1 : 0};
+  transition: all 600ms ease-in-out;
+  overflow: hidden;
+`
+
+export const Collapse: FC<Props> = ({
+  isCurriculumOpen,
+  isChuckVisible,
+  chuckQuote,
+}) => {
+  return (
+    <>
+      <TextWrapper isCurriculumOpen={isCurriculumOpen}>
+        {isCurriculumOpen && (
+          <p>
+            Front-end developer at leboncoin, I am working in the acquisition
+            feature team. The purposes of this field is the performance
+            optimization (CLS, LCP, web vitals...) and the SEO of the
+            leboncoin.fr website.
+            <br />
+            <br />
+            After studying communication and got my Master degree, I was
+            strangely hired only by tech companies (software and web). And by
+            dint of seeing lines of code, I decided to give it a try. I loved
+            it. And I changed my job (but in the same company).
+            <br />
+            <br />
+            Following bootcamp and obtaining my degree, I became a front-end
+            developer. My daily work life nowadays is strewn with Javascript,
+            React, Typescript, styled components, styled system, SASS, storybook
+            and more other tools.
+            <br />
+            <br />I love learning new things and above all, to improve myself.
+          </p>
+        )}
+      </TextWrapper>
+      <QuoteWrapper isChuckVisible={isChuckVisible}>
+        {isChuckVisible && chuckQuote}
+      </QuoteWrapper>
+    </>
+  )
 }
