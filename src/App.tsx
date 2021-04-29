@@ -1,8 +1,10 @@
+import { FC, useState, useEffect } from 'react'
+import styled from 'styled-components'
+
+import { API_URL } from './constant'
 import { ButtonChoice } from './components/buttonChoice'
 import { Collapse } from './components/collapse'
 import profilPicture from './assets/bearded-man.png'
-import { FC, useState, useEffect } from 'react'
-import styled from 'styled-components'
 
 const MainWrapper = styled.div`
   background-color: #f6c71f;
@@ -67,15 +69,13 @@ const App: FC = () => {
     setIsChuckVisible(!isChuckVisible)
   }
 
-  const apiUrl = 'https://api.chucknorris.io/jokes/random'
-
   useEffect(() => {
     async function getApiData(url: string): Promise<void> {
       const response = fetch(url)
       const data = await (await response).json()
       setChuckQuote(data?.value)
     }
-    getApiData(apiUrl)
+    getApiData(API_URL)
   }, [])
 
   return (

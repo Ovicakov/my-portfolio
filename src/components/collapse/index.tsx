@@ -12,7 +12,7 @@ const TextWrapper = styled.p`
   text-align: justify;
   width: 40rem;
   height: ${({ isCurriculumOpen }: Pick<Props, 'isCurriculumOpen'>) =>
-    isCurriculumOpen ? '20rem' : 0};
+    isCurriculumOpen ? '15rem' : 0};
   opacity: ${({ isCurriculumOpen }: Pick<Props, 'isCurriculumOpen'>) =>
     isCurriculumOpen ? 1 : 0};
   transition: all 600ms ease-in-out;
@@ -28,6 +28,10 @@ const QuoteWrapper = styled.span`
     isChuckVisible ? 1 : 0};
   transition: all 600ms ease-in-out;
   overflow: hidden;
+
+  & p {
+    font-size: 0.6rem;
+  }
 `
 
 export const Collapse: FC<Props> = ({
@@ -56,13 +60,14 @@ export const Collapse: FC<Props> = ({
             developer. My daily work life nowadays is strewn with Javascript,
             React, Typescript, styled components, styled system, SASS, storybook
             and more other tools.
-            <br />
-            <br />I love learning new things and above all, to improve myself.
           </p>
         )}
       </TextWrapper>
       <QuoteWrapper isChuckVisible={isChuckVisible}>
-        {isChuckVisible && chuckQuote}
+        {isChuckVisible && chuckQuote + '*'}
+        <br />
+        <br />
+        <p>{isChuckVisible && '* from api.chucknorris.io'}</p>
       </QuoteWrapper>
     </>
   )
