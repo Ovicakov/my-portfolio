@@ -1,10 +1,11 @@
 import { FC, useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-import { API_URL } from './constant'
+import { API_URL, MY_PROJECTS } from './constant'
 import { ButtonChoice } from './components/buttonChoice'
 import { Collapse } from './components/collapse'
 import profilPicture from './assets/bearded-man.png'
+import { ProjectCard } from './components/projectCard'
 
 const MainWrapper = styled.div`
   background-color: #f6c71f;
@@ -79,30 +80,41 @@ const App: FC = () => {
   }, [])
 
   return (
-    <MainWrapper>
-      <TextWrapper>
-        <ProfilWrapper>
-          Hey, I'm Clement.
-          <br />
-          I'm coding stuff with React and Javascript.
-        </ProfilWrapper>
-        <StandfirstWrapper>
-          I enjoy spend my free time in resolving algorithms, and learn new
-          things about code, but not only.
-        </StandfirstWrapper>
-        <ButtonsWrapper>
-          <ButtonChoice onClick={handleIsCurriculumOpen}>
-            {!isCurriculumOpen ? 'Few words about me' : 'Close it !'}
-          </ButtonChoice>
-          <ButtonChoice onClick={handleIsChuckVisible}>
-            {!isChuckVisible ? 'What about Chuck Norris ?' : 'Close it !'}
-          </ButtonChoice>
-        </ButtonsWrapper>
-        {<Collapse isCurriculumOpen={isCurriculumOpen} />}
-        {<Collapse isChuckVisible={isChuckVisible} chuckQuote={chuckQuote} />}
-      </TextWrapper>
-      <img src={profilPicture} width="350" height="350" alt="profil" />
-    </MainWrapper>
+    <>
+      <MainWrapper>
+        <TextWrapper>
+          <ProfilWrapper>
+            Hey, I'm Clement.
+            <br />
+            I'm coding stuff with React and Javascript.
+          </ProfilWrapper>
+          <StandfirstWrapper>
+            I enjoy spend my free time in resolving algorithms, and learn new
+            things about code, but not only.
+          </StandfirstWrapper>
+          <ButtonsWrapper>
+            <ButtonChoice onClick={handleIsCurriculumOpen}>
+              {!isCurriculumOpen ? 'Few words about me' : 'Close it !'}
+            </ButtonChoice>
+            <ButtonChoice onClick={handleIsChuckVisible}>
+              {!isChuckVisible ? 'What about Chuck Norris ?' : 'Close it !'}
+            </ButtonChoice>
+          </ButtonsWrapper>
+          {<Collapse isCurriculumOpen={isCurriculumOpen} />}
+          {<Collapse isChuckVisible={isChuckVisible} chuckQuote={chuckQuote} />}
+        </TextWrapper>
+        <img src={profilPicture} width="350" height="350" alt="profil" />
+      </MainWrapper>
+      {MY_PROJECTS.map(({ name, description, stack, link, link_bis }) => (
+        <ProjectCard
+          name={name}
+          description={description}
+          stack={stack}
+          link={link}
+          link_bis={link_bis}
+        />
+      ))}
+    </>
   )
 }
 
