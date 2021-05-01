@@ -4,7 +4,7 @@ const MY_PROJECTS = [
   {
     name: 'freeCodeCamp Javascript algorithms and data structure certification',
     description:
-      'In order to complete and earn the certification, I had to resolve lots of algorithms. You can have a look on it on my github with these following links',
+      'In order to complete and earn the certification, I had to resolve lots of algorithms. You can have a look on it on my github with these following links.',
     stack: 'Vanilla Javascript',
     link: 'https://gist.github.com/Ovicakov/338234f4087e5f078033ba73b5295ae8',
     link_bis:
@@ -13,7 +13,7 @@ const MY_PROJECTS = [
   {
     name: 'Le mec à vélo',
     description:
-      'As part of my web developer career change, I had the opportunity to take the web and web mobile certification (RNCP, Bac +2). To get this diploma, I made a personal project for a friend which has create his own company',
+      'As part of my web developer career change, I had the opportunity to take the web and web mobile certification (RNCP, Bac +2). To get this diploma, I made a personal project for a friend which has create his own company.',
     stack: 'Javascript, React, CSS, Node.js, Express, mySQL',
     link: 'https://github.com/Ovicakov/LeMecAVelo',
   },
