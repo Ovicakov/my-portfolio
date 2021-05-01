@@ -57,6 +57,8 @@ const ButtonsWrapper = styled.div`
   }
 `
 
+const CardsWrapper = styled.div``
+
 const App: FC = () => {
   const [isCurriculumOpen, setIsCurriculumOpen] = useState(false)
   const [isChuckVisible, setIsChuckVisible] = useState(false)
@@ -71,13 +73,15 @@ const App: FC = () => {
   }
 
   useEffect(() => {
+    if (isChuckVisible) return
+
     async function getApiData(url: string): Promise<void> {
       const response = fetch(url)
       const data = await (await response).json()
       setChuckQuote(data?.value)
     }
-    getApiData(API_URL)
-  }, [])
+    setTimeout(() => getApiData(API_URL), 600)
+  }, [isChuckVisible])
 
   return (
     <>
@@ -105,15 +109,20 @@ const App: FC = () => {
         </TextWrapper>
         <img src={profilPicture} width="350" height="350" alt="profil" />
       </MainWrapper>
-      {MY_PROJECTS.map(({ name, description, stack, link, link_bis }) => (
-        <ProjectCard
-          name={name}
-          description={description}
-          stack={stack}
-          link={link}
-          link_bis={link_bis}
-        />
-      ))}
+      <CardsWrapper>
+        {MY_PROJECTS.map(
+          ({ name, description, stack, link, link_bis, image }) => (
+            <ProjectCard
+              name={name}
+              description={description}
+              stack={stack}
+              link={link}
+              link_bis={link_bis}
+              image={image}
+            />
+          )
+        )}
+      </CardsWrapper>
     </>
   )
 }

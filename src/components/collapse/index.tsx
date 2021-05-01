@@ -23,7 +23,7 @@ const QuoteWrapper = styled.span`
   width: 40rem;
   margin-top: -1rem;
   height: ${({ isChuckVisible }: Pick<Props, 'isChuckVisible'>) =>
-    isChuckVisible ? '5rem' : 0};
+    isChuckVisible ? '6rem' : 0};
   opacity: ${({ isChuckVisible }: Pick<Props, 'isChuckVisible'>) =>
     isChuckVisible ? 1 : 0};
   transition: all 600ms ease-in-out;
