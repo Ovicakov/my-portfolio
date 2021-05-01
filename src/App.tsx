@@ -57,7 +57,16 @@ const ButtonsWrapper = styled.div`
   }
 `
 
-const CardsWrapper = styled.div``
+const CardsWrapper = styled.div`
+  padding-top: 3rem;
+`
+
+const TitleProjects = styled.span`
+  font-weight: 600;
+  margin-left: 15rem;
+  font-size: 1.8rem;
+  color: #f6c71f;
+`
 
 const App: FC = () => {
   const [isCurriculumOpen, setIsCurriculumOpen] = useState(false)
@@ -76,9 +85,11 @@ const App: FC = () => {
     if (isChuckVisible) return
 
     async function getApiData(url: string): Promise<void> {
-      const response = fetch(url)
-      const data = await (await response).json()
-      setChuckQuote(data?.value)
+      const response = await fetch(url)
+      const data: Record<string, string> = await response.json()
+      response.ok
+        ? setChuckQuote(data?.value)
+        : Promise.reject(new Error('The fetch failed'))
     }
     setTimeout(() => getApiData(API_URL), 600)
   }, [isChuckVisible])
@@ -110,18 +121,21 @@ const App: FC = () => {
         <img src={profilPicture} width="350" height="350" alt="profil" />
       </MainWrapper>
       <CardsWrapper>
-        {MY_PROJECTS.map(
-          ({ name, description, stack, link, link_bis, image }) => (
-            <ProjectCard
-              name={name}
-              description={description}
-              stack={stack}
-              link={link}
-              link_bis={link_bis}
-              image={image}
-            />
-          )
-        )}
+        <TitleProjects>My projects</TitleProjects>
+        <>
+          {MY_PROJECTS.map(
+            ({ name, description, stack, link, link_bis, image }) => (
+              <ProjectCard
+                name={name}
+                description={description}
+                stack={stack}
+                link={link}
+                link_bis={link_bis}
+                image={image}
+              />
+            )
+          )}
+        </>
       </CardsWrapper>
     </>
   )

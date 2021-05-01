@@ -31,7 +31,7 @@ const TextWrapper = styled.div`
 const TitleWrapper = styled.span`
   font-size: 1.2rem;
   font-weight: 400;
-  color: #b63e38;
+  color: #f6c71f;
 `
 
 const DescriptionWrapper = styled.div`
