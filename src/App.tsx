@@ -63,7 +63,7 @@ const CardsWrapper = styled.div`
 
 const TitleProjects = styled.span`
   font-weight: 600;
-  margin-left: 15rem;
+  margin-left: 5rem;
   font-size: 1.8rem;
   color: #f6c71f;
 `
@@ -123,18 +123,15 @@ const App: FC = () => {
       <CardsWrapper>
         <TitleProjects>My projects</TitleProjects>
         <>
-          {MY_PROJECTS.map(
-            ({ name, description, stack, link, link_bis, image }) => (
-              <ProjectCard
-                name={name}
-                description={description}
-                stack={stack}
-                link={link}
-                link_bis={link_bis}
-                image={image}
-              />
-            )
-          )}
+          {MY_PROJECTS.map(({ name, description, stack, link, image }) => (
+            <ProjectCard
+              name={name}
+              description={description}
+              stack={stack}
+              link={link}
+              image={image}
+            />
+          ))}
         </>
       </CardsWrapper>
     </>

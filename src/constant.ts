@@ -9,8 +9,6 @@ const MY_PROJECTS = [
       'In order to complete and earn the certification, I had to resolve lots of algorithms. You can have a look on it on my github with these following links.',
     stack: 'Vanilla Javascript',
     link: 'https://gist.github.com/Ovicakov/338234f4087e5f078033ba73b5295ae8',
-    link_bis:
-      'https://gist.github.com/Ovicakov/98ac1bb060b45e857af29f601cac3461',
     image: `${IMAGE}`,
   },
   {
