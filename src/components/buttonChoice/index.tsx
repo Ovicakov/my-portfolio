@@ -35,6 +35,6 @@ const Button = styled.button`
   }
 `
 
-export const ButtonChoice: FC<Props> = ({ children, onClick }) => {
-  return <Button onClick={() => onClick && onClick()}>{children}</Button>
-}
+export const ButtonChoice: FC<Props> = ({ children, onClick }) => (
+  <Button onClick={() => onClick && onClick()}>{children}</Button>
+)

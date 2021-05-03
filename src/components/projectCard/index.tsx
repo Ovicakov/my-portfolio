@@ -51,15 +51,13 @@ export const ProjectCard: FC<Props> = ({
   stack,
   link,
   image,
-}) => {
-  return (
-    <ProjectCardWrapper>
-      <TextWrapper>
-        <TitleWrapper>{name}</TitleWrapper>
-        <DescriptionWrapper>{description}</DescriptionWrapper>
-        <StackWrapper>Stack: {stack}</StackWrapper>
-      </TextWrapper>
-      <img src={image} alt="projet" />
-    </ProjectCardWrapper>
-  )
-}
+}) => (
+  <ProjectCardWrapper>
+    <TextWrapper>
+      <TitleWrapper>{name}</TitleWrapper>
+      <DescriptionWrapper>{description}</DescriptionWrapper>
+      <StackWrapper>Stack: {stack}</StackWrapper>
+    </TextWrapper>
+    <img src={image} alt="projet" />
+  </ProjectCardWrapper>
+)
