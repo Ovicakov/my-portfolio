@@ -7,7 +7,12 @@ interface Props {
   chuckQuote?: string
 }
 
-const TextWrapper = styled.p`
+const BaseButton = styled.span`
+  transition: all 600ms ease-in-out;
+  overflow: hidden;
+`
+
+const TextWrapper = styled(BaseButton)`
   margin-top: 2rem;
   text-align: justify;
   width: 40rem;
@@ -19,15 +24,13 @@ const TextWrapper = styled.p`
   overflow: hidden;
 `
 
-const QuoteWrapper = styled.span`
+const QuoteWrapper = styled(BaseButton)`
   width: 40rem;
   margin-top: -1rem;
   height: ${({ isChuckVisible }: Pick<Props, 'isChuckVisible'>) =>
     isChuckVisible ? '6rem' : 0};
   opacity: ${({ isChuckVisible }: Pick<Props, 'isChuckVisible'>) =>
     isChuckVisible ? 1 : 0};
-  transition: all 600ms ease-in-out;
-  overflow: hidden;
 
   & p {
     font-size: 0.6rem;
