@@ -23,8 +23,9 @@ export const Listing: FC = () => {
     <CardsWrapper>
       <TitleProjects>My projects</TitleProjects>
       <>
-        {MY_PROJECTS.map(({ name, description, stack, link, image }) => (
+        {MY_PROJECTS.map(({ name, description, stack, link, image }, index) => (
           <ProjectCard
+            key={`${index}-${name}`}
             name={name}
             description={description}
             stack={stack}

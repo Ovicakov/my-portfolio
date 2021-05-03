@@ -8,29 +8,22 @@ interface Props {
 }
 
 const BaseButton = styled.span`
+  width: 40rem;
   transition: all 600ms ease-in-out;
   overflow: hidden;
 `
 
-const TextWrapper = styled(BaseButton)`
+const TextWrapper = styled(BaseButton)<Pick<Props, 'isCurriculumOpen'>>`
   margin-top: 2rem;
   text-align: justify;
-  width: 40rem;
-  height: ${({ isCurriculumOpen }: Pick<Props, 'isCurriculumOpen'>) =>
-    isCurriculumOpen ? '15rem' : 0};
-  opacity: ${({ isCurriculumOpen }: Pick<Props, 'isCurriculumOpen'>) =>
-    isCurriculumOpen ? 1 : 0};
-  transition: all 600ms ease-in-out;
-  overflow: hidden;
+  height: ${({ isCurriculumOpen }) => (isCurriculumOpen ? '15rem' : 0)};
+  opacity: ${({ isCurriculumOpen }) => (isCurriculumOpen ? 1 : 0)};
 `
 
-const QuoteWrapper = styled(BaseButton)`
-  width: 40rem;
+const QuoteWrapper = styled(BaseButton)<Pick<Props, 'isChuckVisible'>>`
   margin-top: -1rem;
-  height: ${({ isChuckVisible }: Pick<Props, 'isChuckVisible'>) =>
-    isChuckVisible ? '6rem' : 0};
-  opacity: ${({ isChuckVisible }: Pick<Props, 'isChuckVisible'>) =>
-    isChuckVisible ? 1 : 0};
+  height: ${({ isChuckVisible }) => (isChuckVisible ? '6rem' : 0)};
+  opacity: ${({ isChuckVisible }) => (isChuckVisible ? 1 : 0)};
 
   & p {
     font-size: 0.6rem;

@@ -75,7 +75,9 @@ export const Main: FC = () => {
     async function getApiData(url: string): Promise<void> {
       const response = await fetch(url)
       const data: Record<string, string> = await response.json()
-      setChuckQuote(data?.value || 'Ooops the fetch failed :(')
+      response.ok
+        ? setChuckQuote(data?.value)
+        : Promise.reject(new Error('Fetch failed :('))
     }
     setTimeout(() => getApiData(API_URL), 600)
   }, [isChuckVisible])
