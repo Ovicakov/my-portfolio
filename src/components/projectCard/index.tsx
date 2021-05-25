@@ -58,7 +58,7 @@ export const ProjectCard: FC<Props> = ({
   link,
   image,
 }) => (
-  <Link href={link}>
+  <Link href={link} target="_blank">
     <ProjectCardWrapper>
       <TextWrapper>
         <TitleWrapper>{name}</TitleWrapper>
