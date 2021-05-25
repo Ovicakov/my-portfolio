@@ -4,9 +4,6 @@ import styled from 'styled-components'
 import { MY_PROJECTS } from '../../constant'
 import { ProjectCard } from '../ProjectCard'
 
-/* css prop from styled component doest not work well :
-https://github.com/DefinitelyTyped/DefinitelyTyped/issues/31245
-*/
 const CardsWrapper = styled.div`
   padding-top: 3rem;
 `

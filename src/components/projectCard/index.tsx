@@ -11,6 +11,7 @@ interface Props {
 }
 
 const ProjectCardWrapper = styled.div`
+  cursor: pointer;
   margin: 3rem 33% 3rem 5rem;
   border: 1px solid #e6e6e6;
   border-radius: 10px;
@@ -38,11 +39,16 @@ const DescriptionWrapper = styled.div`
   font-weight: 300;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  color: black;
 `
 
 const StackWrapper = styled.span`
   font-weight: 300;
   color: grey;
+`
+
+const Link = styled.a`
+  text-decoration: none;
 `
 
 export const ProjectCard: FC<Props> = ({
@@ -52,12 +58,14 @@ export const ProjectCard: FC<Props> = ({
   link,
   image,
 }) => (
-  <ProjectCardWrapper>
-    <TextWrapper>
-      <TitleWrapper>{name}</TitleWrapper>
-      <DescriptionWrapper>{description}</DescriptionWrapper>
-      <StackWrapper>Stack: {stack}</StackWrapper>
-    </TextWrapper>
-    <img src={image} alt="projet" />
-  </ProjectCardWrapper>
+  <Link href={link}>
+    <ProjectCardWrapper>
+      <TextWrapper>
+        <TitleWrapper>{name}</TitleWrapper>
+        <DescriptionWrapper>{description}</DescriptionWrapper>
+        <StackWrapper>Stack: {stack}</StackWrapper>
+      </TextWrapper>
+      <img src={image} alt="projet" />
+    </ProjectCardWrapper>
+  </Link>
 )
