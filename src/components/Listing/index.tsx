@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 
-import { MY_PROJECTS } from '../../constant'
+import { MY_PROJECTS } from '../../constants'
 import { ProjectCard } from '../ProjectCard'
 
 const CardsWrapper = styled.div`

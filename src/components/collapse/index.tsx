@@ -5,6 +5,7 @@ interface Props {
   isCurriculumOpen?: boolean
   isChuckVisible?: boolean
   chuckQuote?: string
+  gridArea?: string
 }
 
 const BaseButton = styled.span`
@@ -15,6 +16,7 @@ const BaseButton = styled.span`
 
 const TextWrapper = styled(BaseButton)<Pick<Props, 'isCurriculumOpen'>>`
   margin-top: 2rem;
+  width: 30rem;
   text-align: justify;
   height: ${({ isCurriculumOpen }) => (isCurriculumOpen ? '15rem' : 0)};
   opacity: ${({ isCurriculumOpen }) => (isCurriculumOpen ? 1 : 0)};
@@ -22,6 +24,7 @@ const TextWrapper = styled(BaseButton)<Pick<Props, 'isCurriculumOpen'>>`
 
 const QuoteWrapper = styled(BaseButton)<Pick<Props, 'isChuckVisible'>>`
   margin-top: -1rem;
+  width: 30rem;
   height: ${({ isChuckVisible }) => (isChuckVisible ? '6rem' : 0)};
   opacity: ${({ isChuckVisible }) => (isChuckVisible ? 1 : 0)};
 

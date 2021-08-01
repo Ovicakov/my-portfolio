@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import styled from 'styled-components'
+import { useMobileView } from '../../hooks/useMobileView'
 
 interface Props {
   name: string
@@ -57,15 +58,17 @@ export const ProjectCard: FC<Props> = ({
   stack,
   link,
   image,
-}) => (
-  <Link href={link} target="_blank">
-    <ProjectCardWrapper>
-      <TextWrapper>
-        <TitleWrapper>{name}</TitleWrapper>
-        <DescriptionWrapper>{description}</DescriptionWrapper>
-        <StackWrapper>Stack: {stack}</StackWrapper>
-      </TextWrapper>
-      <img src={image} alt="projet" />
-    </ProjectCardWrapper>
-  </Link>
-)
+}) => {
+  return (
+    <Link href={link} target="_blank">
+      <ProjectCardWrapper>
+        <TextWrapper>
+          <TitleWrapper>{name}</TitleWrapper>
+          <DescriptionWrapper>{description}</DescriptionWrapper>
+          <StackWrapper>Stack: {stack}</StackWrapper>
+        </TextWrapper>
+        <img src={image} alt="projet" />
+      </ProjectCardWrapper>
+    </Link>
+  )
+}

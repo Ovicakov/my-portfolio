@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-import { API_URL } from '../../constant'
+import { API_URL } from '../../constants'
 import { ButtonChoice } from '../ButtonChoice'
 import { Collapse } from '../Collapse'
 import profilPicture from '../../assets/bearded-man.png'
@@ -17,23 +17,18 @@ const MainWrapper = styled.div`
   }
 
   & img {
-    align-self: end;
     margin-right: 5rem;
-
-    @media (max-width: 530px) {
-      margin-right: 0rem;
-    }
   }
 `
 
 const TextWrapper = styled.div`
-  padding: 12rem 5rem 12rem 5rem;
+  padding: 8rem 5rem;
   height: 100%;
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 834px) {
-    padding-bottom: 6rem;
+  @media (max-width: 768px) {
+    padding: 4rem 2rem;
   }
 `
 
@@ -50,9 +45,29 @@ const ButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: 834px) {
+  @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
+  }
+`
+
+const Image = styled.img`
+  width: 350px;
+  height: 350px;
+  margin-right: 5rem;
+  align-self: flex-end;
+
+  @media (max-width: 1250px) {
+    width: 250px;
+    height: 250px;
+  }
+
+  @media (max-width: 1150px) {
+    display: none;
+  }
+
+  @media (max-width: 834px) {
+    display: block;
   }
 `
 
@@ -105,7 +120,7 @@ export const Main: FC = () => {
         {<Collapse isCurriculumOpen={isCurriculumOpen} />}
         {<Collapse isChuckVisible={isChuckVisible} chuckQuote={chuckQuote} />}
       </TextWrapper>
-      <img src={profilPicture} width="350" height="350" alt="profil" />
+      <Image src={profilPicture} alt="profil" />
     </MainWrapper>
   )
 }

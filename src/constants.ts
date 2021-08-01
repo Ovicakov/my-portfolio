@@ -1,3 +1,5 @@
+const MOBILE_TRESHOLD = 800
+
 const API_URL = 'https://api.chucknorris.io/jokes/random'
 
 const IMAGE = 'https://via.placeholder.com/200x150'
@@ -36,4 +38,4 @@ const MY_PROJECTS = [
   },
 ]
 
-export { API_URL, MY_PROJECTS }
+export { API_URL, MY_PROJECTS, MOBILE_TRESHOLD }

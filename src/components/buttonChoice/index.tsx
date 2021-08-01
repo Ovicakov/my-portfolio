@@ -4,6 +4,7 @@ import { FC, ReactNode } from 'react'
 interface Props {
   children: ReactNode
   onClick?: () => void
+  gridArea?: string
 }
 
 const Button = styled.button`
@@ -35,6 +36,6 @@ const Button = styled.button`
   }
 `
 
-export const ButtonChoice: FC<Props> = ({ children, onClick }) => (
+export const ButtonChoice: FC<Props> = ({ children, onClick, gridArea }) => (
   <Button onClick={() => onClick && onClick()}>{children}</Button>
 )
