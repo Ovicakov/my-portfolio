@@ -11,7 +11,7 @@ const HomeWrapper = styled.div`
 const App: FC = () => (
   <HomeWrapper>
     <Main />
-    {/* <Listing /> */}
+    <Listing />
   </HomeWrapper>
 )
 

@@ -24,10 +24,23 @@ const ProjectCardWrapper = styled.div`
   &:hover {
     transform: scale(1.03);
   }
+
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+  }
+
+  @media (max-width: 768px) {
+    margin: 2rem;
+  }
 `
 
 const TextWrapper = styled.div`
   padding-right: 4rem;
+
+  @media (max-width: 1024px) {
+    padding-right: 0;
+    margin-top: 1rem;
+  }
 `
 
 const TitleWrapper = styled.span`
@@ -59,6 +72,7 @@ export const ProjectCard: FC<Props> = ({
   link,
   image,
 }) => {
+  const isMobile = useMobileView()
   return (
     <Link href={link} target="_blank">
       <ProjectCardWrapper>
@@ -67,7 +81,7 @@ export const ProjectCard: FC<Props> = ({
           <DescriptionWrapper>{description}</DescriptionWrapper>
           <StackWrapper>Stack: {stack}</StackWrapper>
         </TextWrapper>
-        <img src={image} alt="projet" />
+        {!isMobile && <img src={image} width="200" height="150" alt="projet" />}
       </ProjectCardWrapper>
     </Link>
   )

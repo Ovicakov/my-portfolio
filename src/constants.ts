@@ -1,4 +1,4 @@
-const MOBILE_TRESHOLD = 800
+const MOBILE_TRESHOLD = 768
 
 const API_URL = 'https://api.chucknorris.io/jokes/random'
 
