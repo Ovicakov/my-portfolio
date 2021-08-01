@@ -16,10 +16,15 @@ const BaseButton = styled.span`
 
 const TextWrapper = styled(BaseButton)<Pick<Props, 'isCurriculumOpen'>>`
   margin-top: 2rem;
-  width: 30rem;
+  max-width: 30rem;
   text-align: justify;
-  height: ${({ isCurriculumOpen }) => (isCurriculumOpen ? '15rem' : 0)};
+  height: ${({ isCurriculumOpen }) => (isCurriculumOpen ? '18rem' : 0)};
   opacity: ${({ isCurriculumOpen }) => (isCurriculumOpen ? 1 : 0)};
+
+  @media (max-width: 768px) {
+    width: 15rem;
+    height: ${({ isCurriculumOpen }) => (isCurriculumOpen ? '30rem' : 0)};
+  }
 `
 
 const QuoteWrapper = styled(BaseButton)<Pick<Props, 'isChuckVisible'>>`
@@ -27,6 +32,10 @@ const QuoteWrapper = styled(BaseButton)<Pick<Props, 'isChuckVisible'>>`
   width: 30rem;
   height: ${({ isChuckVisible }) => (isChuckVisible ? '6rem' : 0)};
   opacity: ${({ isChuckVisible }) => (isChuckVisible ? 1 : 0)};
+
+  @media (max-width: 768px) {
+    width: 15rem;
+  }
 
   & p {
     font-size: 0.6rem;

@@ -43,12 +43,8 @@ const StandfirstWrapper = styled.span`
 
 const ButtonsWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
+  flex-direction: column;
+  align-items: center;
 `
 
 const Image = styled.img`
@@ -113,12 +109,12 @@ export const Main: FC = () => {
           <ButtonChoice onClick={handleIsCurriculumOpen}>
             {!isCurriculumOpen ? 'Few words about me' : 'Close it !'}
           </ButtonChoice>
+          <Collapse isCurriculumOpen={isCurriculumOpen} />
           <ButtonChoice onClick={handleIsChuckVisible}>
             {!isChuckVisible ? 'What about Chuck Norris ?' : 'Close it !'}
           </ButtonChoice>
+          <Collapse isChuckVisible={isChuckVisible} chuckQuote={chuckQuote} />
         </ButtonsWrapper>
-        {<Collapse isCurriculumOpen={isCurriculumOpen} />}
-        {<Collapse isChuckVisible={isChuckVisible} chuckQuote={chuckQuote} />}
       </TextWrapper>
       <Image src={profilPicture} alt="profil" />
     </MainWrapper>
