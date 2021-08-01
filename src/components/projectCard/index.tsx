@@ -13,7 +13,8 @@ interface Props {
 
 const ProjectCardWrapper = styled.div`
   cursor: pointer;
-  margin: 3rem 33% 3rem 5rem;
+  /* margin: 3rem 33% 3rem 5rem; */
+  margin: 3rem 5rem;
   border: 1px solid #e6e6e6;
   border-radius: 10px;
   display: flex;

@@ -16,5 +16,7 @@ export const useMobileView = (): boolean => {
     return () => window.removeEventListener('resize', reportWindowSize)
   })
 
+  console.log({ width })
+
   return width < MOBILE_TRESHOLD
 }
