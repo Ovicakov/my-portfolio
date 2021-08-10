@@ -27,7 +27,6 @@ const Line = styled.div`
   height: 100%;
   background-color: #eaeaea;
   width: 4px;
-  position: absolute;
 `
 
 const Wrapper = styled.div`
@@ -45,25 +44,25 @@ const Bubble = styled.div`
   background-color: white;
 `
 
-export const Listing: FC = () => (
-  <Wrapper>
-    <CardsWrapper>
-      <TitleProjects>My projects</TitleProjects>
-      {MY_PROJECTS.map(({ name, description, stack, link, image }, index) => (
-        <ProjectCard
-          key={`${index}-${name}`}
-          name={name}
-          description={description}
-          stack={stack}
-          link={link}
-          image={image}
-        />
-      ))}
-    </CardsWrapper>
-    <LineWrapper>
-      <Line>
-        <Bubble />
-      </Line>
-    </LineWrapper>
-  </Wrapper>
-)
+export const Listing: FC = () => {
+  return (
+    <Wrapper>
+      <CardsWrapper>
+        <TitleProjects>My projects</TitleProjects>
+        {MY_PROJECTS.map(({ name, description, stack, link, image }, index) => (
+          <ProjectCard
+            key={`${index}-${name}`}
+            name={name}
+            description={description}
+            stack={stack}
+            link={link}
+            image={image}
+            data-sal="slide-up"
+            sal-duration="3s"
+          />
+        ))}
+      </CardsWrapper>
+      <LineWrapper></LineWrapper>
+    </Wrapper>
+  )
+}
