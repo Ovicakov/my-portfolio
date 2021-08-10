@@ -23,25 +23,8 @@ const LineWrapper = styled.div`
   justify-content: center;
 `
 
-const Line = styled.div`
-  height: 100%;
-  background-color: #eaeaea;
-  width: 4px;
-`
-
 const Wrapper = styled.div`
   display: flex;
-`
-
-const Bubble = styled.div`
-  position: fixed;
-  bottom: 10rem;
-  right: 8rem;
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: 50%;
-  border: 4px solid #f6c71f;
-  background-color: white;
 `
 
 export const Listing: FC = () => {
