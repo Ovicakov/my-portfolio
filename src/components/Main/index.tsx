@@ -102,7 +102,7 @@ export const Main: FC = () => {
           I'm coding stuff with React and Javascript.
         </ProfilWrapper>
         <StandfirstWrapper>
-          I enjoy spend my free time in resolving algorithms, and learn new
+          I enjoy to spend my free time solving algorithms, and learning new
           things about code, but not only.
         </StandfirstWrapper>
         <ButtonsWrapper>

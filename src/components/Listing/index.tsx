@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { MY_PROJECTS } from '../../constants'
 import { ProjectCard } from '../ProjectCard'
+import { useMobileView } from '../../hooks/useMobileView'
 
 const CardsWrapper = styled.div`
   padding-top: 3rem;
@@ -28,6 +29,7 @@ const Wrapper = styled.div`
 `
 
 export const Listing: FC = () => {
+  const isMobile = useMobileView()
   return (
     <Wrapper>
       <CardsWrapper>
@@ -45,7 +47,7 @@ export const Listing: FC = () => {
           />
         ))}
       </CardsWrapper>
-      <LineWrapper></LineWrapper>
+      {!isMobile && <LineWrapper />}
     </Wrapper>
   )
 }
